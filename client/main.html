@@ -1,0 +1,44 @@
+<!-- Meteor HTML file을 파싱하고 3개의 최상위 태그로 구분을 합니다.: <head>, <body>, and <template></template> -->
+<head>
+  <title>todoList</title>
+</head>
+
+<body>
+  <h1>hello 템플릿</h1>
+  {{> hello}}
+  <h1>todo 템플릿</h1>
+  {{> mainContainer}}
+</body>
+
+<!-- <template/>은 미티어 템플릿으로 컴파일됨. {{>templateName}} 으로 html안에 넣을 수 있고, js파일에서 Template.templateName으로 참조 가능-->
+<template name="hello">
+  <button class="btn" id="clickBtn">Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
+
+<template name="mainContainer">
+  <div class="container {{theme}}">
+    <header>
+      <h1>Todo List</h1>
+    </header>
+    {{>form}}
+    <ul>
+      {{#each tasks}} {{> task}} {{/each}}
+    </ul>
+  </div>
+</template>
+
+<template name="task">
+  <li>
+    <input type="checkbox" checked="{{isChecked}}" class="toggle-checked" />
+    <span>{{text}}</span>
+    <button class="delete">&times;</button>
+  </li>
+</template>
+
+<template name="form">
+  <form class="task-form">
+    <input type="text" name="text" placeholder="Type to add new tasks" />
+    <button type="submit">Add Task</button>
+  </form>
+</template>
