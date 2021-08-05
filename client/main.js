@@ -59,10 +59,10 @@ Template.form.events({
     const target = event.target;
     const text = target.text.value;
 
-    TasksCollection.insert({
-      text,
-      createdAt: new Date(),
-    });
+    // TasksCollection.insert({
+    //   text,
+    //   createdAt: new Date(),
+    // });
 
     // 1. 클라이언트가 보안 환경에서 서버의 메소드를 실행하도록 요청을 보냄.
     // 2. call의 결과를 예측할 수 있도록 메소드의 시뮬레이션이 클라이언트 사이드에서 일어남. 실제로 method가 완료 되기 전 UI에 나타남.
